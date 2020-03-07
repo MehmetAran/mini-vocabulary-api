@@ -16,7 +16,7 @@ You can send request to https://vocabulary-api-springboot.herokuapp.com/word/{ y
 
 
 <h2>Request</h2>
-<img src="./images/request.png" alt="request" height="150" width="250">
+<img src="./images/request.png" alt="request" height="400" width="450">
 
 <h2>Response</h2>
-<img src="./images/result.png" alt="response" height="150" width="250">
+<img src="./images/result.png" alt="response" height="400" width="450">
