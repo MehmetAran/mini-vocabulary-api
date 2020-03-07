@@ -13,3 +13,10 @@ Sample Sentences are taken from https://www.cumlesozluk.com/
 Maybe I will develop this API to be faster API.
 
 You can send request to https://vocabulary-api-springboot.herokuapp.com/word/{ you have to write a word in this section}
+
+
+<h2>Request</h2>
+<img src="https://github.com/MehmetAran/mini-vocabulary-api/tree/master/images/request" alt="request" height="150" width="250">
+
+<h2>Response</h2>
+<img src="https://github.com/MehmetAran/mini-vocabulary-api/tree/master/images/result" alt="response" height="150" width="250">
