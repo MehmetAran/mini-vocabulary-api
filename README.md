@@ -16,7 +16,7 @@ You can send request to https://vocabulary-api-springboot.herokuapp.com/word/{ y
 
 
 <h2>Request</h2>
-<img src="https://github.com/MehmetAran/mini-vocabulary-api/tree/master/images/request" alt="request" height="150" width="250">
+<img src="https://github.com/MehmetAran/mini-vocabulary-api/tree/master/images/request.png" alt="request" height="150" width="250">
 
 <h2>Response</h2>
-<img src="https://github.com/MehmetAran/mini-vocabulary-api/tree/master/images/result" alt="response" height="150" width="250">
+<img src="https://github.com/MehmetAran/mini-vocabulary-api/tree/master/images/result.png" alt="response" height="150" width="250">
