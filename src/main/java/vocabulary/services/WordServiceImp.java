@@ -18,19 +18,21 @@ import vocabulary.model.WordDetails;
 
 @Service
 public class WordServiceImp implements WordService{
+	Document doc;
 	public List<String> getTranslatesOfWord(String word) throws IOException {
 		ArrayList<String> translates = new ArrayList<String>();
-		Document doc = Jsoup.connect("https://tureng.com/tr/turkce-ingilizce/" + word).get();
+		doc = Jsoup.connect("https://tureng.com/tr/turkce-ingilizce/" + word).get();
 		Elements elements = doc.select("td.tr.ts");
 		for (org.jsoup.nodes.Element element : elements) {
 			translates.add(element.text());
+			if(translates.size() == 5)
+				return translates;
 		}
 		return translates;
 	}
 
 	public Voices getVoicesOfWord(String word) throws IOException {
 		Voices voices = new Voices();
-		Document doc = Jsoup.connect("https://tureng.com/tr/turkce-ingilizce/" + word).get();
 		Elements elements = doc.select("source[src$=.mp3]");
 		voices.setUsAccentVoice(elements.get(0).attr("src"));
 		voices.setEngAccentVoice(elements.get(1).attr("src"));
@@ -67,7 +69,11 @@ public class WordServiceImp implements WordService{
 					Sentence sentence = new Sentence();
 					sentence.setEnglishSentence(english);
 					sentence.setTurkishSentence(turkish);
-					sentences.add(sentence);				}
+					sentences.add(sentence);				
+					if(sentences.size() == 5)
+						return sentences;
+					
+				}
 			}
 		}
 		return sentences;
@@ -79,15 +85,17 @@ public class WordServiceImp implements WordService{
 		Elements elements = doc.select("img");
 		for (Element element : elements) {
 			imagesLinks.add(elements.attr("src"));
-
+			if(imagesLinks.size() == 2)
+				return imagesLinks;
+				
 		}
 		return imagesLinks;
 	}
 	public WordDetails getWordDetails(String word) throws IOException {
 		WordDetails wordDetails = new WordDetails();
 		wordDetails.setWord(word);
-		wordDetails.setSentences(getSentenceAboutWord(wordDetails.getWord()));
 		wordDetails.setTranslates(getTranslatesOfWord(wordDetails.getWord()));
+		wordDetails.setSentences(getSentenceAboutWord(wordDetails.getWord()));
 		wordDetails.setVoices(getVoicesOfWord(wordDetails.getWord()));
 		wordDetails.setImagesLinks(getImagesLinksByWord(wordDetails.getWord()));
 		return wordDetails;
